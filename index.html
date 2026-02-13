@@ -1,10 +1,16 @@
 <!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ZDrummer - MIDI Drummer</title><link rel="stylesheet" href="styles.css"></head><body><div class="container">
         <div class="controls">
             <div class="intensity-display">
-                <div class="intensity-bar">
+                <div class="intensity-bar" id="intensityBar">
+                    <div class="intensity-section" data-level="0.1" title="Light intensity"></div>
+                    <div class="intensity-section" data-level="0.4" title="Medium intensity"></div>
+                    <div class="intensity-section" data-level="0.8" title="Intense"></div>
                     <div id="intensityFill" class="intensity-fill"></div>
                 </div>
-                <span class="intensity-label">Intensity: <span id="intensityValue">0</span>%</span>
+                <div class="intensity-controls">
+                    <span class="intensity-label">Intensity: <span id="intensityValue">0</span></span>
+                    <button id="autoIntensityBtn" class="auto-intensity-btn" title="Reset to automatic">AUTO</button>
+                </div>
             </div>
 
             <div class="beat-display">
@@ -176,4 +182,4 @@
     </div>
 
 
-<script defer src="./static/js/drummer.c750202b.js"></script></body></html>
+<script defer src="./static/js/drummer.2807d995.js"></script></body></html>

@@ -431,6 +431,8 @@ h1 {
     cursor: pointer;
 }
 
+
+
 .reverb-btn {
     padding: 6px 12px;
     font-size: 0.7rem;
@@ -465,18 +467,82 @@ h1 {
     background: #0a0a0a;
     border: 2px solid #664400;
     margin: 0 auto 5px;
+    position: relative;
+    display: flex;
+}
+
+.intensity-section {
+    flex: 1;
+    height: 100%;
+    cursor: pointer;
+    border-right: 1px solid #332200;
+    position: relative;
+    z-index: 2;
+}
+
+.intensity-section:last-child {
+    border-right: none;
+}
+
+.intensity-section:hover {
+    background: rgba(255, 140, 0, 0.1);
+}
+
+.intensity-section::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 50%;
+    width: 2px;
+    background: #664400;
+    transform: translateX(-50%);
+    opacity: 0.5;
 }
 
 .intensity-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 0%;
     background: #ff8c00;
     transition: width 0.1s ease;
+    z-index: 1;
+}
+
+.intensity-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .intensity-label {
     font-size: 0.75rem;
     color: #996600;
+}
+
+.auto-intensity-btn {
+    padding: 2px 6px;
+    font-size: 0.6rem;
+    font-family: 'Courier New', Courier, monospace;
+    background: #0a0a0a;
+    color: #664400;
+    border: 1px solid #664400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.auto-intensity-btn:hover {
+    border-color: #ff8c00;
+    color: #ff8c00;
+}
+
+.auto-intensity-btn.active {
+    background: #ff8c00;
+    color: #0a0a0a;
+    border-color: #ff8c00;
 }
 
 .beat-display {
