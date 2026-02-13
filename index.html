@@ -1,0 +1,197 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>ZDrummer - MIDI Drummer</title><link rel="stylesheet" href="styles.css"></head><body><div class="container">
+        <div class="controls">
+            <div class="intensity-display">
+                <div class="intensity-bar">
+                    <div id="intensityFill" class="intensity-fill"></div>
+                </div>
+                <span class="intensity-label">Intensity: <span id="intensityValue">0</span>%</span>
+            </div>
+
+            <div class="beat-display">
+                <div id="beatIndicator" class="beat-indicator"></div>
+                <span class="beat-label">Beat: <span id="beatCount">1</span>/4</span>
+            </div>
+
+            <div class="pattern-display">
+                <div class="drum-track">
+                    <span class="drum-label">Kick</span>
+                    <div id="kickPattern" class="pattern-grid"></div>
+                </div>
+                <div class="drum-track">
+                    <span class="drum-label">Snare</span>
+                    <div id="snarePattern" class="pattern-grid"></div>
+                </div>
+                <div class="drum-track">
+                    <span class="drum-label">Hi-Hat</span>
+                    <div id="hihatPattern" class="pattern-grid"></div>
+                </div>
+                <div class="drum-track">
+                    <span class="drum-label">Tom</span>
+                    <div id="tomPattern" class="pattern-grid"></div>
+                </div>
+            </div>
+
+            <div class="sound-test-section">
+                <h3>Sound Test</h3>
+                <div class="test-buttons">
+                    <button id="testKickBtn" class="test-btn">Kick</button>
+                    <button id="testSnareBtn" class="test-btn">Snare</button>
+                    <button id="testHihatBtn" class="test-btn">Hi-Hat</button>
+                    <button id="testHihatOpenBtn" class="test-btn">Open HH</button>
+                    <button id="testTom1Btn" class="test-btn">Tom 1</button>
+                    <button id="testTom2Btn" class="test-btn">Tom 2</button>
+                    <button id="testCrashBtn" class="test-btn">Crash</button>
+                    <button id="testRideBtn" class="test-btn">Ride</button>
+                </div>
+            </div>
+
+            <div class="midi-activity">
+                <h3>MIDI Activity</h3>
+                <div class="midi-lights">
+                    <div class="midi-light" id="midiKick">
+                        <span class="light"></span>
+                        <label>Kick</label>
+                    </div>
+                    <div class="midi-light" id="midiSnare">
+                        <span class="light"></span>
+                        <label>Snare</label>
+                    </div>
+                    <div class="midi-light" id="midiHihat">
+                        <span class="light"></span>
+                        <label>Hi-Hat</label>
+                    </div>
+                    <div class="midi-light" id="midiTom">
+                        <span class="light"></span>
+                        <label>Tom</label>
+                    </div>
+                    <div class="midi-light" id="midiCrash">
+                        <span class="light"></span>
+                        <label>Crash</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <div class="beer-toggle" id="beerToggle">
+                    <span class="beer-icon" data-level="1">🍺</span>
+                    <span class="beer-icon" data-level="2">🍺</span>
+                    <span class="beer-icon" data-level="3">🍺</span>
+                    <span class="beer-icon" data-level="4">🍺</span>
+                    <span class="beer-icon" data-level="5">🥃</span>
+                </div>
+                <button id="startBtn" class="btn primary">Start Session</button>
+                <button id="stopBtn" class="btn secondary" disabled>Stop</button>
+            </div>
+
+            <button id="optionsToggleBtn" class="options-toggle">▼ Show Options</button>
+            
+            <div id="optionsPanel" class="options-panel" style="display: none;">
+                <div class="midi-section">
+                <div class="sound-output">
+                    <span class="output-label">Sound:</span>
+                    <span id="soundOutputType" class="output-type">Loading...</span>
+                </div>
+                <div class="midi-status" id="midiStatus">
+                    <span class="status-dot"></span>
+                    <span id="midiStatusText">No MIDI device</span>
+                </div>
+                <button id="connectMidiBtn" class="btn midi-btn">Connect MIDI Device</button>
+                <div class="midi-devices">
+                    <label for="midiChannel">MIDI Channel:</label>
+                    <select id="midiChannel">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10" selected>10 (Drums)</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="midi-map-section">
+                <h3>MIDI Note Mapping</h3>
+                <div class="midi-map">
+                    <div class="midi-map-row">
+                        <label>Kick:</label>
+                        <input type="number" id="kickNote" value="36" min="0" max="127" class="note-input">
+                    </div>
+                    <div class="midi-map-row">
+                        <label>Snare:</label>
+                        <input type="number" id="snareNote" value="38" min="0" max="127" class="note-input">
+                    </div>
+                    <div class="midi-map-row">
+                        <label>Hi-Hat Closed:</label>
+                        <input type="number" id="hihatNote" value="42" min="0" max="127" class="note-input">
+                    </div>
+                    <div class="midi-map-row">
+                        <label>Hi-Hat Open:</label>
+                        <input type="number" id="hihatOpenNote" value="46" min="0" max="127" class="note-input">
+                    </div>
+                    <div class="midi-map-row">
+                        <label>Tom 1:</label>
+                        <input type="number" id="tom1Note" value="41" min="0" max="127" class="note-input">
+                    </div>
+                    <div class="midi-map-row">
+                        <label>Tom 2:</label>
+                        <input type="number" id="tom2Note" value="48" min="0" max="127" class="note-input">
+                    </div>
+                    <div class="midi-map-row">
+                        <label>Crash:</label>
+                        <input type="number" id="crashNote" value="49" min="0" max="127" class="note-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tempo-section">
+                <div class="tempo-display">
+                    <span id="tempoDisplay" class="tempo-value">120</span>
+                    <span class="tempo-unit">BPM</span>
+                </div>
+                <div class="tempo-controls">
+                    <div class="tempo-slider-row">
+                        <input type="range" id="manualTempo" min="40" max="200" value="120">
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <div class="setting">
+                    <label for="sensitivity">Sensitivity: <span id="sensitivityValue">50</span>%</label>
+                    <input type="range" id="sensitivity" min="10" max="100" value="50">
+                </div>
+                <div class="setting">
+                    <label for="swing">Swing: <span id="swingValue">6</span>%</label>
+                    <input type="range" id="swing" min="0" max="30" value="6">
+                </div>
+                <div class="setting">
+                    <label for="intensitySource">Intensity Input:</label>
+                    <select id="intensitySource">
+                        <option value="accelerometer">Motion (Accelerometer)</option>
+                        <option value="microphone">Microphone</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <button id="reverbBtn" class="on reverb-btn">Reverb: ON</button>
+                </div>
+            </div>
+            </div>
+
+            <div class="status">
+                <span id="statusText">Ready to start</span>
+            </div>
+        </div>
+    </div>
+
+
+<script defer src="/static/js/drummer.8dc9458a.js"></script></body></html>
