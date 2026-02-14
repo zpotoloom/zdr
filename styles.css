@@ -325,7 +325,7 @@ h1 {
 }
 
 .tempo-section {
-    text-align: center;
+    text-align: left;
     margin-bottom: 12px;
     padding: 12px;
     border: 1px solid #664400;
@@ -336,6 +336,7 @@ h1 {
 }
 
 .tempo-value {
+    text-align: left;
     font-size: 2.5rem;
     font-weight: bold;
     color: #ff8c00;
@@ -558,7 +559,9 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 5px;
+    min-width: 120px;
 }
 
 .tempo-value-wrapper {
@@ -579,7 +582,8 @@ h1 {
 }
 
 .tempo-slider-top {
-    width: 100px;
+    width: 50%;
+    min-width: 150px;
     height: 6px;
     -webkit-appearance: none;
     background: #332200;
