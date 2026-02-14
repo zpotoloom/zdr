@@ -462,11 +462,11 @@ h1 {
 
 .intensity-bar {
     width: 100%;
-    max-width: 220px;
-    height: 16px;
+    max-width: 280px;
+    height: 40px;
     background: #0a0a0a;
     border: 2px solid #664400;
-    margin: 0 auto 5px;
+    margin: 0 auto 8px;
     position: relative;
     display: flex;
 }
@@ -484,15 +484,16 @@ h1 {
     border-right: none;
 }
 
-.intensity-section:hover {
-    background: rgba(255, 140, 0, 0.1);
+.intensity-section:hover,
+.intensity-section:active {
+    background: rgba(255, 140, 0, 0.2);
 }
 
 .intensity-section::before {
     content: '';
     position: absolute;
-    top: 2px;
-    bottom: 2px;
+    top: 4px;
+    bottom: 4px;
     left: 50%;
     width: 2px;
     background: #664400;
