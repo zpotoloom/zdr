@@ -14,9 +14,18 @@
                 </div>
             </div>
 
-            <div class="beat-display">
-                <div id="beatIndicator" class="beat-indicator"></div>
-                <span class="beat-label">Beat: <span id="beatCount">1</span>/4</span>
+            <div class="top-display">
+                <div class="tempo-display-top">
+                    <div class="tempo-value-wrapper">
+                        <span id="tempoDisplay" class="tempo-value">120</span>
+                        <span class="tempo-unit">BPM</span>
+                    </div>
+                    <input type="range" id="manualTempo" min="40" max="200" value="120" class="tempo-slider-top">
+                </div>
+                <div class="beat-display">
+                    <div id="beatIndicator" class="beat-indicator"></div>
+                    <span class="beat-label">Beat: <span id="beatCount">1</span>/4</span>
+                </div>
             </div>
 
             <div class="pattern-display">
@@ -44,6 +53,10 @@
                     <span class="drum-label">Ride</span>
                     <div id="ridePattern" class="pattern-grid"></div>
                 </div>
+            </div>
+
+            <div class="viz-container">
+                <canvas id="realtimeViz" class="realtime-viz"></canvas>
             </div>
 
             <div class="midi-activity">
@@ -161,18 +174,6 @@
                 </div>
             </div>
 
-            <div class="tempo-section">
-                <div class="tempo-display">
-                    <span id="tempoDisplay" class="tempo-value">120</span>
-                    <span class="tempo-unit">BPM</span>
-                </div>
-                <div class="tempo-controls">
-                    <div class="tempo-slider-row">
-                        <input type="range" id="manualTempo" min="40" max="200" value="120">
-                    </div>
-                </div>
-            </div>
-
             <div class="settings-section">
                 <div class="setting">
                     <label for="sensitivity">Sensitivity: <span id="sensitivityValue">20</span>%</label>
@@ -199,4 +200,4 @@
     </div>
 
 
-<script defer src="./static/js/drummer.284c4d8c.js"></script></body></html>
+<script defer src="./static/js/drummer.01cccaf0.js"></script></body></html>
